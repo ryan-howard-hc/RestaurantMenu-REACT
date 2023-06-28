@@ -44,11 +44,11 @@ MoSCoW
     - Interactive meals based on time of day/day of week
     - Doordash implementation
 
-## INIT - VARIABLES
+## INIT - VARIABLES & FUNCTIONS
 1. Menu
     - displayMenu
-    - menuItems
-    - item.name, item.price, etc
+    - const meals
+    - meal.name, meal.price, etc
     - dailySpecials
         - VARIABLES for rendering and displaying menu as well as additional icons/specials
 
@@ -56,6 +56,7 @@ MoSCoW
     - selectedMeal
     - mealNumber
     - confirmOrder
+    - const confirm
     - userInput
         - VARIABLES for performing the necessary steps to place an order, such as updating a database or sending a request
 
@@ -63,7 +64,23 @@ MoSCoW
     - locationalData
         - VARIABLES for finding the restaurant through a search engine
 
-## RENDER - FUNCTIONS
-1. FUNCTION displayMenu() {
-    
+## RENDER - FUNCTION STRUCTURE and OBJECTS
+
+import React, {useState}
+
+
+1. function displayMenu () {
+    const [meals] = useState([
+        menu items?
+    ]);
+
+    const [dailySpecials] = useState([
+        specials?
+    ]);
+}
+
+2. function location() {
+    const [locationalData] ([
+
+    ]);
 }
