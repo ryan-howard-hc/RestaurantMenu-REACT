@@ -7,9 +7,9 @@ MoSCoW
 - BOOTSTRAP via NPM
 - API retrieval through AXIOS
 - DYNAMIC menu - SECTIONS such as appetizers, pasta, sandwiches, etc
-               - AT LEAST 15 items
+               - AT LEAST 15 meals
                - ORGANISM display for each section
-               - BOOTSTRAP card for each item
+               - BOOTSTRAP card for each meal
 - MANAGE react component state
 - RESPONSIVE to mobile users
 
@@ -66,21 +66,43 @@ MoSCoW
 
 ## RENDER - FUNCTION STRUCTURE and OBJECTS
 
-import React, {useState}
-
+import React, { useEffect, useState } from 'react';
+import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 1. function displayMenu () {
-    const [meals] = useState([
-        menu items?
-    ]);
+    - const ENDPOINT = 'MEALS';
+    - const [meal] = useState([menu meals]);
 
-    const [dailySpecials] = useState([
-        specials?
-    ]);
-}
+    - const [dailySpecials] = useState([specials?]);
+
+    - return (
+      - <div>
+        - <h2>Menu:</h2>
+        - {menumeals.map((meal) => (
+          - <div key={meal.name}>
+            - <p>Name: {meal.name}</p>
+            - <p>Price: {meal.price}</p>
+            - <p>Spiciness: {meal.spicinessIcon}</p>
+            - <p>Vegan: {meal.veganIcon}</p>
+            - <p>Substitution Options: {meal.substitutionOptions}</p>
+          - </div>
+        - ))};
+      - </div>
+    - );
+  - };
+
 
 2. function location() {
-    const [locationalData] ([
+    - const [locationalData] ([]); }
 
-    ]);
+3. 
+
+
+
+MAYBE ??
+export function getLocalStorage(listName) {
+  const saved = localStorage.getmeal(listName);
+  return saved && saved.length > 0 ? JSON.parse(saved) : [];
 }
+
+## END
