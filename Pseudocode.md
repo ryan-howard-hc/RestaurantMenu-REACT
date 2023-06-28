@@ -71,20 +71,25 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 1. function displayMenu () {
     - const ENDPOINT = 'MEALS';
-    - const [meal] = useState([menu meals]);
+    - const [meal] = useState([menuItems]);
 
     - const [dailySpecials] = useState([specials?]);
 
     - return (
       - <div>
         - <h2>Menu:</h2>
-        - {menumeals.map((meal) => (
-          - <div key={meal.name}>
-            - <p>Name: {meal.name}</p>
-            - <p>Price: {meal.price}</p>
-            - <p>Spiciness: {meal.spicinessIcon}</p>
-            - <p>Vegan: {meal.veganIcon}</p>
-            - <p>Substitution Options: {meal.substitutionOptions}</p>
+        - {menuItems.map((meal) => (
+          - <div key={meal.id} meal={meal}>
+            - <div class = "card"> Name: {meal.name}</div>
+
+            - <div class = "card"> Price: {meal.price}</div>
+
+            - <div class = "card"> Spiciness: {meal.spicinessIcon}</div>
+
+            - <div class = "card"> Vegan: {meal.veganIcon}</div>
+
+            - <div class = "card"> Substitution Options: {meal.substitutionOptions}</div>
+
           - </div>
         - ))};
       - </div>
