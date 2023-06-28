@@ -38,8 +38,32 @@ MoSCoW
     - Each meal and collective descriptions 
     - NPM locational data retrievable through google
     - Wireframe representation
-    
+
 3. Organism
     - Each section containing several meals
     - Interactive meals based on time of day/day of week
     - Doordash implementation
+
+## INIT - VARIABLES
+1. Menu
+    - displayMenu
+    - menuItems
+    - item.name, item.price, etc
+    - dailySpecials
+        - VARIABLES for rendering and displaying menu as well as additional icons/specials
+
+2. Online ordering
+    - selectedMeal
+    - mealNumber
+    - confirmOrder
+    - userInput
+        - VARIABLES for performing the necessary steps to place an order, such as updating a database or sending a request
+
+3. Location
+    - locationalData
+        - VARIABLES for finding the restaurant through a search engine
+
+## RENDER - FUNCTIONS
+1. FUNCTION displayMenu() {
+    
+}
