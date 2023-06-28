@@ -73,8 +73,7 @@ MoSCoW
 1. function displayMenu () {
     - const ENDPOINT = 'MEALS';
     - const [meal, setMenu] = useState([menuItems]);
-
-    - const [dailySpecials] = useState([specials?]);
+    - const [special, dailySpecials] = useState([specialItems]);
 
     - useEffect(() => {
         - let data = getLocalStorage(ENDPOINT);
@@ -84,6 +83,19 @@ MoSCoW
         - getData(ENDPOINT)
         - .then((data) => {
             -  setMenu(data);
+            -  getLocalStorage(ENDPOINT, data);
+        })
+    }
+  }, []);
+
+      - useEffect(() => {
+        - let data = getLocalStorage(ENDPOINT);
+        - if (data.length > 0) {
+            - dailySpecials=data;
+            - } else {
+        - getData(ENDPOINT)
+        - .then((data) => {
+            -  dailySpecials(data);
             -  getLocalStorage(ENDPOINT, data);
         })
     }
@@ -107,8 +119,21 @@ MoSCoW
             - <div class = "card"> Substitution Options: {meal.substitutionOptions}</div>
 
             - <div class = "card"> Description: {item.description}</div>
+
           - </div>
         -  ))};
+        - <h2>Daily Specials:</h2>
+        - {specialItems.map((special) => (
+          - <div key={special.name}>
+
+            - <div class = "card"> Name: {special.name}</div>
+
+            - <div class = "card"> Price: {special.price}</div>
+
+            - <div class = "card"> Description: {special.description}</div>
+
+          - </div>
+        ))}
       - </div>
     - );
   - };
@@ -117,7 +142,9 @@ MoSCoW
 2. function location() {
     - const [locationalData] ([]); }
 
-3. 
+3. function doorDash() {
+    -const 
+}
 
 
 

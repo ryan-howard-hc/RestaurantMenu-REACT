@@ -105,7 +105,7 @@
         "substitutionOptions": "A bag of faeces"
       }
     ],
-    "dailySpecials": [
+    "specialItems": [
       {
         "name": "Fried Gryphon",
         "price": "$15",
