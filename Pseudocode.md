@@ -37,7 +37,7 @@ MoSCoW
 2. Molecules
     - Each meal and collective descriptions 
     - NPM locational data retrievable through google
-    - Wireframe representation
+    - Wireframe representation 
 
 3. Organism
     - Each section containing several meals
@@ -66,20 +66,36 @@ MoSCoW
 
 ## RENDER - FUNCTION STRUCTURE and OBJECTS
 
-import React, { useEffect, useState } from 'react';
-import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
+- import React, { useEffect, useState } from 'react';
+- import { getData } from '../utils/data';
+- import { getLocalStorage } from '../utils/localStorage';
 
 1. function displayMenu () {
     - const ENDPOINT = 'MEALS';
-    - const [meal] = useState([menuItems]);
+    - const [meal, setMenu] = useState([menuItems]);
 
     - const [dailySpecials] = useState([specials?]);
 
-    - return (
+    - useEffect(() => {
+        - let data = getLocalStorage(ENDPOINT);
+        - if (data.length > 0) {
+            - setMenu=data;
+            - } else {
+        - getData(ENDPOINT)
+        - .then((data) => {
+            -  setMenu(data);
+            -  getLocalStorage(ENDPOINT, data);
+        })
+    }
+  }, []);
+
+
+    -  return (
       - <div>
         - <h2>Menu:</h2>
-        - {menuItems.map((meal) => (
+        -  {menuItems.map((meal) => (
           - <div key={meal.id} meal={meal}>
+
             - <div class = "card"> Name: {meal.name}</div>
 
             - <div class = "card"> Price: {meal.price}</div>
@@ -90,8 +106,9 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
             - <div class = "card"> Substitution Options: {meal.substitutionOptions}</div>
 
+            - <div class = "card"> Description: {item.description}</div>
           - </div>
-        - ))};
+        -  ))};
       - </div>
     - );
   - };
